@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Project1
 {
-    enum Modes
+    enum MainOption
     {
-        EXIT,
-        GUEST,
-        ADMIN
+        Exit,
+        Admin,
+        Guest
     }
 }

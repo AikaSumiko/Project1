@@ -4,33 +4,36 @@ namespace Project1
 {
     class MainProgram
     {
-        public delegate void mode(string userinput);
+        public delegate void mode(int userinput);
         static void Main(string[] args)
         {
             bool checkAdminGuest = true;
 
             do
             {
-                Console.WriteLine("Enter 1 for Admin\nEnter 2 for Guest\nEnter 0 to exit");
+                Console.WriteLine("Press on\n1.Admin\n2.Guest\n0.Exit");
 
                 int userinput = int.Parse(Console.ReadLine());
 
                 mode modeselected;
 
-                switch ((Modes)userinput)
+                switch ((MainOption)userinput)
                 {
-                    case Modes.GUEST:
+                    case MainOption.Admin:
+                        Console.Clear();
+                        modeselected = new mode(AdminInterface.AdminMode);
+                        modeselected(userinput);
+                        break;
+                    case MainOption.Guest:
                         Console.Clear();
                         modeselected = new mode(GuestInterface.GuestMode);
-                        modeselected(userinput.ToString());
+                        modeselected(userinput);
                         break;
-                    case Modes.ADMIN:
-                        break;
-                    case Modes.EXIT:
+                    case MainOption.Exit:
+                        Console.Clear();
                         checkAdminGuest = false;
                         break;
                 }
-
             } while (checkAdminGuest);
         }
     }
