@@ -41,8 +41,12 @@ namespace Project1
                         menuselect();
                         break;
                     case GuestOption.TechnologicalSkills:
+                        menuselect = new mode(Technological_Skills.TechnologicalSkill);
+                        menuselect();
                         break;
                     case GuestOption.ContactDetails:
+                        menuselect = new mode(Contact_Details.Contact);
+                        menuselect();
                         break;
                     case GuestOption.Exit:
                         Console.Clear();

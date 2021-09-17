@@ -13,10 +13,8 @@ namespace Project1
             do
             {
                 Console.Clear();
-                Console.WriteLine("0.Go back");
-
-                List<string> listA = new List<string>();
-                List<string> listB = new List<string>();
+                
+                List<string> contact = new List<string>();
                 using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Contact.csv"))
                 {
                     while (!reader.EndOfStream)
@@ -28,29 +26,22 @@ namespace Project1
 
                         for (int i = 0; i < values.Length; i++)
                         {
-                            if (i <= (lol / 2))
-                            {
-                                listA.Add(values[i]);
-                            }
-                            if (i > (lol / 2))
-                            {
-                                listB.Add(values[i]);
-                            }
+                            contact.Add(values[i]);
                         }
                     }
                 }
-                for (int i = 0; i < listA.Count; i++)
+                Console.WriteLine("Contact Details\n");
+                for (int i = 0; i < contact.Count; i++)
                 {
-                    Console.WriteLine(listA[i]);
+                    Console.WriteLine(contact[i]);
                 }
-                for (int i = 0; i < listB.Count; i++)
-                {
-                    Console.WriteLine(listB[i]);
-                }
+
+                Console.WriteLine("\n0.Go back");
 
                 int input = int.Parse(Console.ReadLine());
                 if (input == 0)
                 {
+                    Console.Clear();
                     exit = false;
                 }
             } while (exit);

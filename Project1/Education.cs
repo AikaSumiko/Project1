@@ -21,110 +21,149 @@ namespace Project1
                     case EducationOption.Year1:
                         Console.Clear();
 
-                        List<string> listA = new List<string>();
-                        List<string> listB = new List<string>();
-                        using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Year1.csv"))
+                        List<string> year1module = new List<string>();
+                        using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Year1Modules.csv"))
                         {
                             while (!reader.EndOfStream)
                             {
                                 var line = reader.ReadLine();
                                 var values = line.Split(';');
 
-                                int lol = values.Length - 1;
-
                                 for (int i = 0; i < values.Length; i++)
                                 {
-                                    if (i <= (lol / 2))
-                                    {
-                                        listA.Add(values[i]);
-                                    }
-                                    if (i > (lol / 2))
-                                    {
-                                        listB.Add(values[i]);
-                                    }
+                                    year1module.Add(values[i]);
                                 }
                             }
                         }
-                        for (int i = 0; i < listA.Count; i++)
+                        Console.WriteLine("Year 1 Modules\n");
+                        int count = 1;
+                        for (int i = 0; i < year1module.Count; i++)
                         {
-                            Console.WriteLine(listA[i]);
+                            Console.WriteLine(count + "." + year1module[i]);
+                            count++;
                         }
-                        for (int i = 0; i < listB.Count; i++)
+                        Console.WriteLine("\nYear 1 Projects\n");
+                        List<string> year1project = new List<string>();
+                        using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Year1Projects.csv"))
                         {
-                            Console.WriteLine(listB[i]);
+                            while (!reader.EndOfStream)
+                            {
+                                var line = reader.ReadLine();
+                                var values = line.Split(';');
+
+                                for (int i = 0; i < values.Length; i++)
+                                {
+                                    year1project.Add(values[i]);
+                                }
+                            }
                         }
+                        int count2 = 1;
+                        for (int i = 0; i < year1project.Count; i++)
+                        {
+                            Console.WriteLine(count2 + "." + year1project[i]);
+                            count++;
+                        }
+                        Console.WriteLine("\nPress on any key to exit");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case EducationOption.Year2:
                         Console.Clear();
 
-                        List<string> listC = new List<string>();
-                        List<string> listD = new List<string>();
-                        using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Year2.csv"))
+                        List<string> year2module = new List<string>();
+                        using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Year2Modules.csv"))
                         {
                             while (!reader.EndOfStream)
                             {
                                 var line = reader.ReadLine();
                                 var values = line.Split(';');
 
-                                int lol = values.Length - 1;
-
                                 for (int i = 0; i < values.Length; i++)
                                 {
-                                    if (i <= (lol / 2))
-                                    {
-                                        listC.Add(values[i]);
-                                    }
-                                    if (i > (lol / 2))
-                                    {
-                                        listD.Add(values[i]);
-                                    }
+                                    year2module.Add(values[i]);
                                 }
                             }
                         }
-                        for (int i = 0; i < listC.Count; i++)
+                        Console.WriteLine("\nYear 2 Modules\n");
+                        int count3 = 1;
+                        for (int i = 0; i < year2module.Count; i++)
                         {
-                            Console.WriteLine(listC[i]);
+                            Console.WriteLine(count3 + "." + year2module[i]);
+                            count3++;
                         }
-                        for (int i = 0; i < listD.Count; i++)
+                        Console.WriteLine("\nYear 2 Projects\n");
+                        List<string> year2project = new List<string>();
+                        using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Year2Projects.csv"))
                         {
-                            Console.WriteLine(listD[i]);
+                            while (!reader.EndOfStream)
+                            {
+                                var line = reader.ReadLine();
+                                var values = line.Split(';');
+
+                                for (int i = 0; i < values.Length; i++)
+                                {
+                                    year2project.Add(values[i]);
+                                }
+                            }
                         }
+                        int count4 = 1;
+                        for (int i = 0; i < year2project.Count; i++)
+                        {
+                            Console.WriteLine(count4 + "." + year2project[i]);
+                            count4++;
+                        }
+                        Console.WriteLine("\nPress on any key to exit");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case EducationOption.Year3:
                         Console.Clear();
 
-                        List<string> listE = new List<string>();
-                        List<string> listF = new List<string>();
-                        using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Year3.csv"))
+                        List<string> year3module = new List<string>();
+                        using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Year3Modules.csv"))
                         {
                             while (!reader.EndOfStream)
                             {
                                 var line = reader.ReadLine();
                                 var values = line.Split(';');
 
-                                int lol = values.Length - 1;
-
                                 for (int i = 0; i < values.Length; i++)
                                 {
-                                    if (i <= (lol / 2))
-                                    {
-                                        listE.Add(values[i]);
-                                    }
-                                    if (i > (lol / 2))
-                                    {
-                                        listF.Add(values[i]);
-                                    }
+                                    year3module.Add(values[i]);
                                 }
                             }
                         }
-                        for (int i = 0; i < listE.Count; i++)
+                        Console.WriteLine("\nYear 3 Modules\n");
+                        int count5 = 1;
+                        for (int i = 0; i < year3module.Count; i++)
                         {
-                            Console.WriteLine(listE[i]);
+                            Console.WriteLine(count5 + "." + year3module[i]);
+                            count5++;
                         }
-                        for (int i = 0; i < listF.Count; i++)
+                        Console.WriteLine("\nYear 3 Projects\n");
+                        List<string> year3project = new List<string>();
+                        using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Year3Projects.csv"))
                         {
-                            Console.WriteLine(listF[i]);
+                            while (!reader.EndOfStream)
+                            {
+                                var line = reader.ReadLine();
+                                var values = line.Split(';');
+
+                                for (int i = 0; i < values.Length; i++)
+                                {
+                                    year3project.Add(values[i]);
+                                }
+                            }
                         }
+                        int count6 = 1;
+                        for (int i = 0; i < year3project.Count; i++)
+                        {
+                            Console.WriteLine(count6 + "." + year3project[i]);
+                            count6++;
+                        }
+                        Console.WriteLine("\nPress on any key to exit");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case EducationOption.Exit:
                         Console.Clear();

@@ -54,6 +54,9 @@ namespace Project1
                         {
                             Console.WriteLine(listB[i]);
                         }
+                        Console.WriteLine("Press on any key to exit");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case OptionJob.Exit:
                         Console.Clear();
