@@ -6,8 +6,8 @@ namespace Project1
 {
     class GuestInterface
     {
-        public delegate void mode(int userinput);
-        public static void GuestMode(int value)
+        public delegate void mode();
+        public static void GuestMode()
         {
             bool guestmenu = true;
 
@@ -28,11 +28,17 @@ namespace Project1
                     case GuestOption.Experience:
                         Console.Clear();
                         menuselect = new mode(Experience.Job);
-                        menuselect(userinput);
+                        menuselect();
                         break;
                     case GuestOption.Education:
+                        Console.Clear();
+                        menuselect = new mode(Education.EducationMeun);
+                        menuselect();
                         break;
                     case GuestOption.Skills:
+                        Console.Clear();
+                        menuselect = new mode(Skills.SkillMenu);
+                        menuselect();
                         break;
                     case GuestOption.TechnologicalSkills:
                         break;

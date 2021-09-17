@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -7,7 +8,7 @@ namespace Project1
 {
     class Experience
     {
-        public static void Job(int value)
+        public static void Job()
         {
             bool exit = true;
             do
@@ -20,6 +21,7 @@ namespace Project1
                 {
                     case OptionJob.Ceridian:
                         Console.Clear();
+
                         List<string> listA = new List<string>();
                         List<string> listB = new List<string>();
                         using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Experience.csv"))
@@ -29,13 +31,28 @@ namespace Project1
                                 var line = reader.ReadLine();
                                 var values = line.Split(';');
 
-                                listA.Add(values[0]);
-                                listB.Add(values[1]);
+                                int lol = values.Length - 1;
+
+                                for (int i = 0; i < values.Length; i++)
+                                {
+                                    if (i <= (lol / 2))
+                                    {
+                                        listA.Add(values[i]);
+                                    }
+                                    if (i > (lol / 2))
+                                    {
+                                        listB.Add(values[i]);
+                                    }
+                                }
                             }
                         }
                         for (int i = 0; i < listA.Count; i++)
                         {
                             Console.WriteLine(listA[i]);
+                        }
+                        for (int i = 0; i < listB.Count; i++)
+                        {
+                            Console.WriteLine(listB[i]);
                         }
                         break;
                     case OptionJob.Exit:
@@ -44,7 +61,6 @@ namespace Project1
                         break;
                 }
             } while (exit);
-            
         }
     }
 }
