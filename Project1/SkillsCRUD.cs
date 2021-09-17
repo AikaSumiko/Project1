@@ -7,51 +7,73 @@ namespace Project1
 {
     class SkillsCRUD
     {
+        public delegate void mode();
         public static void CRUDSkill()
         {
-            List<string> skill = new List<string>();
-            using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Skills.csv"))
+            bool exit = true;
+
+            do
             {
-                while (!reader.EndOfStream)
+                Console.WriteLine("Select\n1.Add\n2.Update\n3.Delete\n0.Go Back\n");
+                Console.WriteLine("Enter option:");
+
+                bool checkinput;
+
+                int userinput = 0;
+
+                do
                 {
-                    var line = reader.ReadLine();
-                    var values = line.Split(';');
-
-                    for (int i = 0; i < values.Length; i++)
+                    try
                     {
-                        skill.Add(values[i]);
+                        userinput = int.Parse(Console.ReadLine());
+
+                        if (userinput < 4 && userinput >= 0)
+                        {
+                            checkinput = true;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Select\n1.Add\n2.Update\n3.Delete\n0.Go back\n");
+                            Console.WriteLine("Wrong mode, try again:");
+                            checkinput = false;
+                        }
                     }
+                    catch
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Select\n1.Add\n2.Update\n3.Delete\n0.Go back\n");
+                        Console.WriteLine("Wrong mode, try again:");
+                        checkinput = false;
+                    }
+
+                } while (!checkinput);
+
+                mode select;
+
+                switch ((SkillEdit)userinput)
+                {
+                    case SkillEdit.Add:
+                        Console.Clear();
+                        select = new mode(SkillAdd.AddSkill);
+                        select();
+                        break;
+                    case SkillEdit.Update:
+                        Console.Clear();
+                        select = new mode(SkillUpdate.UpdateSkill);
+                        select();
+                        break;
+                    case SkillEdit.Delete:
+                        Console.Clear();
+                        select = new mode(SkillDelete.DeleteSkill);
+                        select();
+                        break;
+                    case SkillEdit.Exit:
+                        Console.Clear();
+                        exit = false;
+                        break;
                 }
-            }
-            Console.WriteLine("Skills\n");
-            int count = 1;
-            for (int i = 0; i < skill.Count; i++)
-            {
-                Console.WriteLine(count + "." + skill[i]);
-                count++;
-            }
-
-            Console.WriteLine("Add Skill:");
-
-            string input = Console.ReadLine();
-
-            skill.Add(input);
-            //before your loop
-            var csv = new StringBuilder();
-
-            //in your loop
-            for (int i = 0;i < skill.Count; i++)
-            {
-                var first = skill[i].ToString();
-                var newLine = string.Format("{0},{1}{2}", first, "", Environment.NewLine);
-                csv.Append(newLine);
-            }
-            //after your loop
-            File.WriteAllText(@"C:\Users\pparv\source\repos\Project1\CSVs\Skills.csv", csv.ToString());
-
-            Console.WriteLine("\nPress on any key to exit");
-            Console.ReadKey();
-            Console.Clear();
+            } while (exit);        
         }
     }
 }

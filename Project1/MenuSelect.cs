@@ -38,6 +38,14 @@ namespace Project1
         ContactDetails
     }
 
+    enum SkillEdit
+    {
+        Exit,
+        Add,
+        Update,
+        Delete
+    }
+
     enum MainOption
     {
         Exit,
