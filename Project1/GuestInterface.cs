@@ -11,17 +11,49 @@ namespace Project1
         {
             bool guestmenu = true;
 
+            Console.WriteLine("Description\n");
+
             Console.WriteLine("Hardworking Student looking for work. Ready to put my skills and passion to work in support of a company's"
                     + "objective.Technologically savvy, with experience on a variety of office software, and sophisticated computer "
-                    + "skills.Developing a good mindset as well as the desire and motivation to learn new programs.");
+                    + "skills.Developing a good mindset as well as the desire and motivation to learn new programs.\n");
 
             do
             {
                 mode menuselect;
-
+                Console.WriteLine("Guest Mode\n");
                 Console.WriteLine("Select\n1.Experience / Job History\n2.Education / Training\n3.Skills\n4.Technological SKills\n5.Contact Details\n0.Go back");
+                Console.WriteLine("\nEnter option:");
 
-                int userinput = int.Parse(Console.ReadLine());
+                int userinput = 0;
+
+                bool checkinput;
+                do
+                {
+                    try
+                    {
+                        userinput = int.Parse(Console.ReadLine());
+
+                        if (userinput < 6 && userinput >= 0)
+                        {
+                            checkinput = true;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Select\n1.Experience / Job History\n2.Education / Training\n3.Skills\n4.Technological SKills\n5.Contact Details\n0.Go back\n");
+                            Console.WriteLine("Wrong option, try again:");
+                            checkinput = false;
+                        }
+                    }
+                    catch
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Select\n1.Experience / Job History\n2.Education / Training\n3.Skills\n4.Technological SKills\n5.Contact Details\n0.Go back\n");
+                        Console.WriteLine("Wrong option, try again:");
+                        checkinput = false;
+                    }
+
+                } while (!checkinput);
 
                 switch ((GuestOption)userinput)
                 {

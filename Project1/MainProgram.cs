@@ -11,10 +11,39 @@ namespace Project1
 
             do
             {
-                Console.WriteLine("Select Mode to Enter\n1.Admin mode\n2.Guest mode\n0.Exit");
+                Console.WriteLine("Select a Mode:\n1.Admin mode\n2.Guest mode\n0.Exit\n");
+                Console.WriteLine("Enter mode:");
 
-                int userinput = int.Parse(Console.ReadLine());
+                int userinput = 0;
+                
+                bool checkinput;
+                do
+                {
+                    try
+                    {
+                        userinput = int.Parse(Console.ReadLine());
 
+                        if (userinput < 3 && userinput >= 0)
+                        {
+                            checkinput = true;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Select a Mode:\n1.Admin mode\n2.Guest mode\n0.Exit\n");
+                            Console.WriteLine("Wrong mode, try again:");
+                            checkinput = false;
+                        }
+                    }
+                    catch
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Select a Mode:\n1.Admin mode\n2.Guest mode\n0.Exit\n");
+                        Console.WriteLine("Wrong mode, try again:");
+                        checkinput = false;
+                    }
+
+                } while (!checkinput);
                 mode modeselected;
 
                 switch ((MainOption)userinput)

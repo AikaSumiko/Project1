@@ -12,9 +12,39 @@ namespace Project1
             bool exit = true;
             do
             {
-                Console.WriteLine("Select\n1.Software Engineering Year 1\n2.Software Engineering Year 2\n3.Software Engineering Year 3\n0.Go back");
+                Console.WriteLine("Select\n1.Software Engineering (Year 1)\n2.Software Engineering (Year 2)\n3.Software Engineering (Year 3)\n0.Go back");
+                Console.WriteLine("\nEnter option:");
 
-                int userinput = int.Parse(Console.ReadLine());
+                int userinput = 0;
+
+                bool checkinput;
+                do
+                {
+                    try
+                    {
+                        userinput = int.Parse(Console.ReadLine());
+
+                        if (userinput < 4 && userinput >= 0)
+                        {
+                            checkinput = true;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Select\n1.Software Engineering (Year 1)\n2.Software Engineering (Year 2)\n3.Software Engineering (Year 3)\n0.Go back");
+                            Console.WriteLine("\nWrong option, try again:");
+                            checkinput = false;
+                        }
+                    }
+                    catch
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Select\n1.Software Engineering (Year 1)\n2.Software Engineering (Year 2)\n3.Software Engineering (Year 3)\n0.Go back");
+                        Console.WriteLine("\nWrong option, try again:");
+                        checkinput = false;
+                    }
+
+                } while (!checkinput);
 
                 switch ((EducationOption)userinput)
                 {

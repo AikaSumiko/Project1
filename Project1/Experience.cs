@@ -13,9 +13,39 @@ namespace Project1
             bool exit = true;
             do
             {
-                Console.WriteLine("Select\n1.Ceridian\n0.Go back");
+                Console.WriteLine("Select\n1.Ceridian\n0.Go back\n");
+                Console.WriteLine("Enter option:");
 
-                int userinput = int.Parse(Console.ReadLine());
+                int userinput = 0;
+
+                bool checkinput;
+                do
+                {
+                    try
+                    {
+                        userinput = int.Parse(Console.ReadLine());
+
+                        if (userinput < 2 && userinput >= 0)
+                        {
+                            checkinput = true;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Select\n1.Ceridian\n0.Go back\n");
+                            Console.WriteLine("Wrong option, try again:");
+                            checkinput = false;
+                        }
+                    }
+                    catch
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Select\n1.Ceridian\n0.Go back\n");
+                        Console.WriteLine("Wrong option, try again:");
+                        checkinput = false;
+                    }
+
+                } while (!checkinput);
 
                 switch ((OptionJob)userinput)
                 {
