@@ -28,6 +28,16 @@ namespace Project1
         ContactDetails
     }
 
+    enum Admin
+    {
+        Exit,
+        Experience,
+        Education,
+        Skills,
+        TechnologicalSkills,
+        ContactDetails
+    }
+
     enum MainOption
     {
         Exit,

@@ -5,12 +5,10 @@ using System.Text;
 
 namespace Project1
 {
-    class Skills
+    class SkillsCRUD
     {
-        public static void SkillMenu()
+        public static void CRUDSkill()
         {
-            Console.Clear();
-
             List<string> skill = new List<string>();
             using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Skills.csv"))
             {
@@ -32,6 +30,24 @@ namespace Project1
                 Console.WriteLine(count + "." + skill[i]);
                 count++;
             }
+
+            Console.WriteLine("Add Skill:");
+
+            string input = Console.ReadLine();
+
+            skill.Add(input);
+            //before your loop
+            var csv = new StringBuilder();
+
+            //in your loop
+            for (int i = 0;i < skill.Count; i++)
+            {
+                var first = skill[i].ToString();
+                var newLine = string.Format("{0},{1}{2}", first, "", Environment.NewLine);
+                csv.Append(newLine);
+            }
+            //after your loop
+            File.WriteAllText(@"C:\Users\pparv\source\repos\Project1\CSVs\Skills.csv", csv.ToString());
 
             Console.WriteLine("\nPress on any key to exit");
             Console.ReadKey();

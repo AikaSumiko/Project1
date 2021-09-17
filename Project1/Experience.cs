@@ -52,8 +52,7 @@ namespace Project1
                     case OptionJob.Ceridian:
                         Console.Clear();
 
-                        List<string> listA = new List<string>();
-                        List<string> listB = new List<string>();
+                        List<string> Content = new List<string>();
                         using (var reader = new StreamReader(@"C:\Users\pparv\source\repos\Project1\CSVs\Experience.csv"))
                         {
                             while (!reader.EndOfStream)
@@ -61,30 +60,25 @@ namespace Project1
                                 var line = reader.ReadLine();
                                 var values = line.Split(';');
 
-                                int lol = values.Length - 1;
-
                                 for (int i = 0; i < values.Length; i++)
                                 {
-                                    if (i <= (lol / 2))
-                                    {
-                                        listA.Add(values[i]);
-                                    }
-                                    if (i > (lol / 2))
-                                    {
-                                        listB.Add(values[i]);
-                                    }
+                                    Content.Add(values[i]);
                                 }
                             }
                         }
-                        for (int i = 0; i < listA.Count; i++)
+                        string[] chars = new string[] { ",", ".", "/", "!", "@", "#", "$", "%", "^", "&", "*", "'", "\"", ";", "_", "(", ")", ":", "|", "[", "]" };
+                        for (int i = 0; i < chars.Length; i++)
                         {
-                            Console.WriteLine(listA[i]);
+                            if (Content.Contains(chars[i]))
+                            {
+                                Content.Remove(chars[i]);
+                            }
                         }
-                        for (int i = 0; i < listB.Count; i++)
+                        for (int i = 0; i < Content.Count; i++)
                         {
-                            Console.WriteLine(listB[i]);
+                            Console.WriteLine(Content[i]);
                         }
-                        Console.WriteLine("Press on any key to exit");
+                        Console.WriteLine("\nPress on any key to exit");
                         Console.ReadKey();
                         Console.Clear();
                         break;

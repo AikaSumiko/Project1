@@ -35,6 +35,7 @@ namespace Project1
 
             Console.WriteLine("\nPress on any key to exit");
             Console.ReadKey();
+            Console.Clear();
         }
     }
 }

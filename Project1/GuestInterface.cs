@@ -19,8 +19,8 @@ namespace Project1
 
             do
             {
+                Console.WriteLine("Welcome to Guest Mode\n");
                 mode menuselect;
-                Console.WriteLine("Guest Mode\n");
                 Console.WriteLine("Select\n1.Experience / Job History\n2.Education / Training\n3.Skills\n4.Technological SKills\n5.Contact Details\n0.Go back");
                 Console.WriteLine("\nEnter option:");
 
